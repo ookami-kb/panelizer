@@ -43,7 +43,6 @@ class AppWrapper extends StatelessWidget {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) => MaterialApp(
         title: 'Flutter Demo',
