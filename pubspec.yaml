@@ -1,7 +1,7 @@
 name: panelizer
 description: "A new Flutter package project."
 version: 0.0.1
-# homepage:
+homepage: https://github.com/ookami-kb/panelizer
 
 environment:
   sdk: ">=3.3.4 <4.0.0"
@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  melos: ^6.0.0
   mews_pedantic: ^0.26.0
 
 flutter:

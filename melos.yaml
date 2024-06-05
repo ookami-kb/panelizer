@@ -1,0 +1,10 @@
+name: panelizer
+repository: https://github.com/ookami-kb/panelizer
+
+packages:
+  - .
+  - ./example/
+
+command:
+  version:
+    workspaceChangelog: false
