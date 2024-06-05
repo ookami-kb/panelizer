@@ -93,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          heroTag: 'FAB',
           onPressed: _incrementCounter,
           tooltip: 'Increment',
           child: const Icon(Icons.add),

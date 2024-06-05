@@ -1,0 +1,1 @@
+enum Layout { narrow, wide }
