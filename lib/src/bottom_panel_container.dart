@@ -16,12 +16,13 @@ class _BottomPanelContainerState extends State<BottomPanelContainer> {
 
   @override
   Widget build(BuildContext context) => Column(
-        children: [
-          SizedBox(
-            height: 30,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: widget.children
+    children: [
+      SizedBox(
+        height: 30,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children:
+              widget.children
                   .mapIndexed(
                     (i, e) => GestureDetector(
                       onTap: () => setState(() => _activeItem = i),
@@ -30,9 +31,7 @@ class _BottomPanelContainerState extends State<BottomPanelContainer> {
                         child: Text(
                           e.title.toUpperCase(),
                           style: TextStyle(
-                            fontWeight: i == _activeItem
-                                ? FontWeight.bold
-                                : FontWeight.normal,
+                            fontWeight: i == _activeItem ? FontWeight.bold : FontWeight.normal,
                             fontSize: 12,
                           ),
                         ),
@@ -40,9 +39,9 @@ class _BottomPanelContainerState extends State<BottomPanelContainer> {
                     ),
                   )
                   .toList(),
-            ),
-          ),
-          Expanded(child: widget.children[_activeItem].child),
-        ],
-      );
+        ),
+      ),
+      Expanded(child: widget.children[_activeItem].child),
+    ],
+  );
 }

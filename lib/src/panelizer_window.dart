@@ -40,8 +40,7 @@ class _PanelizerWindowState extends State<PanelizerWindow> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final newLayout =
-        MediaQuery.sizeOf(context).width > 800 ? Layout.wide : Layout.narrow;
+    final newLayout = MediaQuery.sizeOf(context).width > 800 ? Layout.wide : Layout.narrow;
 
     if (newLayout != _layout) {
       _layout = newLayout;
@@ -60,38 +59,31 @@ class _PanelizerWindowState extends State<PanelizerWindow> {
 
   @override
   Widget build(BuildContext context) {
-    final left = widget.left
-        .map<Widget>((tile) => TileContainer(tile: tile))
-        .intersperse(Container(height: 1, color: const Color(0xFFE7EBF1)))
-        .toList();
+    final left =
+        widget.left
+            .map<Widget>((tile) => TileContainer(tile: tile))
+            .intersperse(Container(height: 1, color: const Color(0xFFE7EBF1)))
+            .toList();
 
-    final right = widget.right
-        .map<Widget>((tile) => TileContainer(tile: tile))
-        .intersperse(Container(height: 1, color: const Color(0xFFE7EBF1)))
-        .toList();
+    final right =
+        widget.right
+            .map<Widget>((tile) => TileContainer(tile: tile))
+            .intersperse(Container(height: 1, color: const Color(0xFFE7EBF1)))
+            .toList();
 
     final content = KeyedSubtree(
       key: _contentKey,
-      child: Panel(
-        backgroundColor: const Color(0xFFFFFFFF),
-        child: widget.content,
-      ),
+      child: Panel(backgroundColor: const Color(0xFFFFFFFF), child: widget.content),
     );
 
     final leftPanel = Panel(
       backgroundColor: const Color(0xFFF4F7FC),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: left,
-      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: left),
     );
 
     final rightPanel = Panel(
       backgroundColor: const Color(0xFFF4F7FC),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: right,
-      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: right),
     );
 
     final bottomPanel = Panel(
@@ -147,39 +139,42 @@ class _PanelizerWindowState extends State<PanelizerWindow> {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () => setState(() {
-                    _showLeft = !_showLeft;
-                    if (_layout == Layout.narrow) {
-                      _showBottom = false;
-                      _showRight = false;
-                    }
-                  }),
+                  onPressed:
+                      () => setState(() {
+                        _showLeft = !_showLeft;
+                        if (_layout == Layout.narrow) {
+                          _showBottom = false;
+                          _showRight = false;
+                        }
+                      }),
                   icon: Icon(
                     Icons.arrow_circle_left_outlined,
                     color: _showLeft ? null : const Color(0xFFD9DFE7),
                   ),
                 ),
                 IconButton(
-                  onPressed: () => setState(() {
-                    _showRight = !_showRight;
-                    if (_layout == Layout.narrow) {
-                      _showBottom = false;
-                      _showLeft = false;
-                    }
-                  }),
+                  onPressed:
+                      () => setState(() {
+                        _showRight = !_showRight;
+                        if (_layout == Layout.narrow) {
+                          _showBottom = false;
+                          _showLeft = false;
+                        }
+                      }),
                   icon: Icon(
                     Icons.arrow_circle_right_outlined,
                     color: _showRight ? null : const Color(0xFFD9DFE7),
                   ),
                 ),
                 IconButton(
-                  onPressed: () => setState(() {
-                    _showBottom = !_showBottom;
-                    if (_layout == Layout.narrow) {
-                      _showLeft = false;
-                      _showRight = false;
-                    }
-                  }),
+                  onPressed:
+                      () => setState(() {
+                        _showBottom = !_showBottom;
+                        if (_layout == Layout.narrow) {
+                          _showLeft = false;
+                          _showRight = false;
+                        }
+                      }),
                   icon: Icon(
                     Icons.arrow_circle_down_outlined,
                     color: _showBottom ? null : const Color(0xFFD9DFE7),

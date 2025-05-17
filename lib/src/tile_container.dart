@@ -15,9 +15,8 @@ class _TileContainerState extends State<TileContainer> {
 
   @override
   Widget build(BuildContext context) {
-    final chevron = _isExpanded
-        ? Icons.keyboard_arrow_down_sharp
-        : Icons.keyboard_arrow_right_sharp;
+    final chevron =
+        _isExpanded ? Icons.keyboard_arrow_down_sharp : Icons.keyboard_arrow_right_sharp;
 
     final title = GestureDetector(
       onTap: () => setState(() => _isExpanded = !_isExpanded),
@@ -28,16 +27,10 @@ class _TileContainerState extends State<TileContainer> {
           child: Text.rich(
             TextSpan(
               children: [
-                WidgetSpan(
-                  alignment: PlaceholderAlignment.middle,
-                  child: Icon(chevron),
-                ),
+                WidgetSpan(alignment: PlaceholderAlignment.middle, child: Icon(chevron)),
                 TextSpan(
                   text: widget.tile.title.toUpperCase(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                 ),
               ],
             ),
@@ -48,18 +41,12 @@ class _TileContainerState extends State<TileContainer> {
 
     return _isExpanded
         ? Expanded(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                title,
-                if (_isExpanded)
-                  Expanded(
-                    child: widget.tile.child,
-                  ),
-              ],
-            ),
-          )
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [title, if (_isExpanded) Expanded(child: widget.tile.child)],
+          ),
+        )
         : title;
   }
 }

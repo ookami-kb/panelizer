@@ -10,34 +10,17 @@ class AppWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const PanelizerWindow(
-        left: [
-          PanelizerTile(
-            title: 'Tile 1',
-            child: Center(child: Text('Tile 1 content')),
-          ),
-          PanelizerTile(
-            title: 'Tile 2',
-            child: Center(child: Text('Tile 2 content')),
-          ),
-        ],
-        right: [
-          PanelizerTile(
-            title: 'Tile 3',
-            child: Center(child: Text('Tile 3 content')),
-          ),
-        ],
-        bottom: [
-          PanelizerTile(
-            title: 'Tile 4',
-            child: Center(child: Text('Tile 4 content')),
-          ),
-          PanelizerTile(
-            title: 'Tile 5',
-            child: Center(child: Text('Tile 5 content')),
-          ),
-        ],
-        content: MyApp(),
-      );
+    left: [
+      PanelizerTile(title: 'Tile 1', child: Center(child: Text('Tile 1 content'))),
+      PanelizerTile(title: 'Tile 2', child: Center(child: Text('Tile 2 content'))),
+    ],
+    right: [PanelizerTile(title: 'Tile 3', child: Center(child: Text('Tile 3 content')))],
+    bottom: [
+      PanelizerTile(title: 'Tile 4', child: Center(child: Text('Tile 4 content'))),
+      PanelizerTile(title: 'Tile 5', child: Center(child: Text('Tile 5 content'))),
+    ],
+    content: MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -45,13 +28,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      );
+    title: 'Flutter Demo',
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    ),
+    home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -74,29 +57,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          heroTag: 'FAB',
-          onPressed: _incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        ),
-      );
+    appBar: AppBar(
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      title: Text(widget.title),
+    ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text('You have pushed the button this many times:'),
+          Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
+        ],
+      ),
+    ),
+    floatingActionButton: FloatingActionButton(
+      heroTag: 'FAB',
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ),
+  );
 }
